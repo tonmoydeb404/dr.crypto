@@ -1,1 +1,58 @@
 /* custom component style will be here */
+
+.navbar {
+  @apply bg-slate-800 py-3;
+}
+
+.navbar .container {
+  @apply flex items-center justify-between;
+}
+
+.navbar_title {
+  @apply flex items-center gap-x-2;
+}
+
+.navbar_title-icon {
+  @apply w-8 h-fit;
+}
+
+.navbar_title-text {
+  @apply text-2xl font-semibold;
+}
+
+.search_box {
+  @apply hidden sm:flex items-stretch flex-shrink;
+}
+
+.search_box-field {
+  @apply py-1.5 px-3 outline-none ring-2 ring-transparent ring-inset focus:ring-blue-500 duration-300 bg-slate-900/40 rounded-l flex-shrink;
+}
+
+.search_box-btn {
+  @apply px-3 bg-blue-600 rounded-r flex-shrink-0;
+}
+
+.search_box-toggle {
+  @apply inline-block sm:hidden px-2.5 py-1.5 bg-blue-600 rounded flex-shrink-0;
+}
+
+@media (max-width: 639px) {
+  @keyframes showSearch {
+    from {
+      transform: translateY(-100%);
+    }
+  }
+
+  .search_box-container.show_search {
+    @apply flex flex-row-reverse fixed top-0 left-0 gap-x-2 w-full py-3 container bg-slate-800 justify-center;
+    animation: showSearch 0.3s;
+  }
+
+  .search_box-container.show_search .search_box {
+    @apply flex;
+  }
+
+  .search_box-container.show_search .search_box-field {
+    @apply w-full;
+  }
+}
