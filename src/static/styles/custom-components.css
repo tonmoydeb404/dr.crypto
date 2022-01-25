@@ -58,7 +58,7 @@
 }
 
 .crypto_card {
-  @apply relative p-4 bg-slate-800 rounded overflow-hidden;
+  @apply relative p-4 bg-slate-800 rounded overflow-hidden ring-2 ring-transparent hover:ring-blue-600 duration-300 flex flex-col h-full justify-center;
 }
 
 .crypto_card.single .crypto_card-header {
@@ -71,6 +71,10 @@
 
 .crypto_card-header {
   @apply flex gap-x-2;
+}
+
+.crypto_card-icon {
+  @apply w-12 sm:w-14 h-fit;
 }
 
 .crypto_card-title {
@@ -87,4 +91,82 @@
 
 .crypto_card-subheading {
   @apply text-sm text-slate-300;
+}
+
+.crypto_details-header {
+  @apply px-5 py-3.5 flex justify-between flex-wrap items-center gap-y-8 gap-x-4 bg-slate-800 rounded-lg
+  md:flex-row md:px-8 md:py-5;
+}
+
+.crypto_details-title {
+  @apply flex items-center gap-x-3;
+}
+
+.crypto_details-icon {
+  @apply w-12 sm:w-14 h-fit;
+}
+
+.crypto_details-title-text {
+  @apply text-xl font-semibold sm:text-2xl;
+}
+
+.crypto_details-title-changes {
+  @apply text-base;
+}
+
+.crypto_details-price {
+  @apply flex flex-col flex-1 text-right;
+}
+
+.crypto_details-price-high {
+  @apply text-green-600 font-medium text-base;
+}
+
+.crypto_details-price-low {
+  @apply text-red-600 font-medium text-base;
+}
+
+.crypto_details-market {
+  @apply flex flex-col flex-1 text-right;
+}
+
+.crypto_details-market-price {
+  @apply text-2xl sm:text-3xl font-semibold;
+}
+
+.crypto_details-market-cap {
+  @apply text-sm sm:text-base font-medium text-slate-500;
+}
+
+.crypto_details-sparks {
+  @apply mt-10 px-2 py-5 bg-slate-800 rounded-lg;
+}
+
+.crypto_details-desc {
+  @apply px-4 py-3 bg-slate-800 rounded-lg mt-10 w-full
+  sm:px-5 sm:py-3.5 md:px-8 md:py-5;
+}
+
+.crypto_details-desc-header {
+  @apply flex justify-between items-center;
+}
+
+.crypto_details-desc-title {
+  @apply text-base font-medium;
+}
+
+.crypto_details-desc-text {
+  @apply text-base leading-relaxed text-slate-100;
+}
+
+.crypto_details-desc-text a {
+  @apply text-red-600 hover:text-blue-600 duration-300 font-medium;
+}
+
+.crypto_details-desc-icon {
+  @apply px-1.5 py-0.5 rounded hover:text-blue-500 hover:bg-slate-900 duration-300;
+}
+
+.crypto_card-layout {
+  @apply grid gap-4 py-5 px-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
 }

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import CryptoCard from '../components/CryptoCard';
 import useSearch from '../hooks/useSearch';
 
@@ -22,15 +22,16 @@ const Search = () => {
     }
 
     return searchData.coins && searchData.coins.length ? (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="crypto_card-layout">
             {searchData.coins.map((coin) => (
-                <CryptoCard
-                    className="single"
-                    key={coin.id}
-                    icon={coin.large}
-                    title={coin.name}
-                    rank={coin.market_cap_rank}
-                />
+                <Link key={coin.id} to={`/${coin.id}`} className="block">
+                    <CryptoCard
+                        className="single"
+                        icon={coin.large}
+                        title={coin.name}
+                        rank={coin.market_cap_rank}
+                    />
+                </Link>
             ))}
         </div>
     ) : (

@@ -13,11 +13,7 @@ const CryptoCard = ({
         <span className="crypto_card-rank ">{rank}</span>
         <div className="crypto_card-header ">
             {icon ? (
-                <img
-                    src={icon}
-                    alt={title || 'DR. CRYPTO'}
-                    className="crypto_card-icon w-16 h-fit"
-                />
+                <img src={icon} alt={title || 'DR. CRYPTO'} className="crypto_card-icon" />
             ) : (
                 ''
             )}

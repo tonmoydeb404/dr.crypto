@@ -1,29 +1,34 @@
 import React from 'react';
-import CryptoDetailsBody from './CryptoDetailsBody';
+import CryptoDetailsDesc from './CryptoDetailsDesc';
 import CryptoDetailsHeader from './CryptoDetailsHeader';
+import CryptoDetailsSparks from './CryptoDetailsSparks';
 
 const CryptoDetails = ({
     className = '',
-    icon = null,
     title = null,
+    icon = null,
     changes = null,
-    price = null,
-    marketcap = null,
+    priceHigh = null,
+    priceLow = null,
+    currentPrice = null,
+    marketCap = null,
+    text = null,
     sparks = null,
-    closeBtn = () => {},
 }) => (
     <div className={`crypto_details ${className}`}>
-        <button onClick={closeBtn} className="crypto_details-close">
-            <i className="bi bi-x-square-fill" />
-        </button>
         <CryptoDetailsHeader
             title={title}
-            changes={changes}
-            price={price}
-            marketcap={marketcap}
             icon={icon}
+            changes={changes}
+            priceHigh={priceHigh}
+            priceLow={priceLow}
+            currentPrice={currentPrice}
+            marketCap={marketCap}
         />
-        <CryptoDetailsBody data={sparks} />
+
+        <CryptoDetailsSparks data={sparks} />
+
+        <CryptoDetailsDesc text={text} />
     </div>
 );
 
