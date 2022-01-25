@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSearchContext } from '../context/SearchContext';
 
 const SearchBox = ({ className = '' }) => {
     const [showSearch, setShowSearch] = useState(false);
-    const [query, setQuery] = useState('');
+    const { query, setQuery } = useSearchContext();
+    const navigate = useNavigate();
 
     const handleSearch = (e) => {
         e.preventDefault();
+
+        // navigate to search page
+        if (typeof query === 'string' && !query.length) {
+            navigate('/');
+        } else {
+            navigate(`/search/?query=${query}`);
+        }
     };
 
     return (

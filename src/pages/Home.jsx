@@ -1,15 +1,12 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import CryptoCard from '../../components/CryptoCard';
-import useCoins from '../../hooks/useCoins';
+import CryptoCard from '../components/CryptoCard';
+import useCoins from '../hooks/useCoins';
 
 const Home = () => {
     const [page, setPage] = useState(1);
 
     const { coinsLoading, coinsError, hasMore, coins } = useCoins(page);
-
-    console.log(coins);
 
     if (coinsLoading && !coinsError && !coins) {
         return 'loading...';

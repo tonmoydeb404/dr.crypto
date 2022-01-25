@@ -56,3 +56,35 @@
     @apply w-full;
   }
 }
+
+.crypto_card {
+  @apply relative p-4 bg-slate-800 rounded overflow-hidden;
+}
+
+.crypto_card.single .crypto_card-header {
+  @apply items-center;
+}
+
+.crypto_card-rank {
+  @apply absolute bottom-0 right-0 px-1.5 py-0.5 bg-blue-600 text-sm inline-block rounded-tl-sm;
+}
+
+.crypto_card-header {
+  @apply flex gap-x-2;
+}
+
+.crypto_card-title {
+  @apply text-xl font-semibold;
+}
+
+.crypto_card-subtitle {
+  @apply font-medium text-base;
+}
+
+.crypto_card-heading {
+  @apply text-2xl font-semibold;
+}
+
+.crypto_card-subheading {
+  @apply text-sm text-slate-300;
+}
