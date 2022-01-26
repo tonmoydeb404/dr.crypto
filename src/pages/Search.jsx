@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import CardSkeleton from '../components/CardSkeleton';
 import CryptoCard from '../components/CryptoCard';
+import SkeletonScreen from '../components/SkeletonScreen';
 import useSearch from '../hooks/useSearch';
 
 const Search = () => {
@@ -14,7 +16,11 @@ const Search = () => {
     }
 
     if (searchLoading && !searchError && !searchData) {
-        return 'loading...';
+        return (
+            <SkeletonScreen className="crypto_card-layout" count={15}>
+                <CardSkeleton header />
+            </SkeletonScreen>
+        );
     }
 
     if (!searchLoading && searchError && !searchData) {
@@ -35,7 +41,9 @@ const Search = () => {
             ))}
         </div>
     ) : (
-        ''
+        <SkeletonScreen className="crypto_card-layout" count={15}>
+            <CardSkeleton header />
+        </SkeletonScreen>
     );
 };
 

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from 'react-router-dom';
+import CardSkeleton from '../components/CardSkeleton';
 import CryptoCard from '../components/CryptoCard';
+import SkeletonScreen from '../components/SkeletonScreen';
 import useCoins from '../hooks/useCoins';
 
 const Home = () => {
@@ -10,7 +12,11 @@ const Home = () => {
     const { coinsLoading, coinsError, hasMore, coins } = useCoins(page);
 
     if (coinsLoading && !coinsError && !coins) {
-        return 'loading...';
+        return (
+            <SkeletonScreen className="crypto_card-layout" count={30}>
+                <CardSkeleton header body />
+            </SkeletonScreen>
+        );
     }
 
     if (!coinsLoading && coinsError && !coins) {
@@ -40,7 +46,9 @@ const Home = () => {
             ))}
         </InfiniteScroll>
     ) : (
-        ''
+        <SkeletonScreen className="crypto_card-layout" count={30}>
+            <CardSkeleton header body />
+        </SkeletonScreen>
     );
 };
 

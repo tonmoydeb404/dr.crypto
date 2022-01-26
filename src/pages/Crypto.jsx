@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import CardDetailsSkeleton from '../components/CardDetailsSkeleton';
 import CryptoDetails from '../components/CryptoDetails';
 import useCoin from '../hooks/useCoin';
 
@@ -10,7 +11,7 @@ const Crypto = () => {
     console.log(id);
 
     if (coinLoading && !coinError && !coin) {
-        return 'loading...';
+        return <CardDetailsSkeleton />;
     }
 
     if (!coinLoading && coinError && !coin) {
@@ -30,7 +31,7 @@ const Crypto = () => {
             sparks={coin.market_data.sparkline_7d.price}
         />
     ) : (
-        ''
+        <CardDetailsSkeleton />
     );
 };
 
