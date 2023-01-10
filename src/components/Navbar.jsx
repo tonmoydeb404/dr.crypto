@@ -6,7 +6,7 @@ import SearchBox from './SearchBox';
 const Navbar = ({
     className = '',
     title = 'Dr. Crypto',
-    icon = 'https://cdn.coinranking.com/assets/cffd06083b2fa4c3ff87bb7963c85615.svg',
+    icon = 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Cryptocurrency_Logo.svg',
 }) => {
     const { setQuery } = useSearchContext();
 
